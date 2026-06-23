@@ -90,12 +90,6 @@ Content-Type: multipart/form-data
 To run this project, create a `.env` file in the root directory of the backend and add the following variables:
 
 ```env
-
-MONGO_URI="mongodb://localhost:27017/forkly"
-JWT_SECRET="t0S53Gbyag:L&sMUh:X:}bPQpp9[2CvIKz&[Zq$G[i;"
-JWT_EXP="1h"
-PORT=5000
-
 # MongoDB connection string
 MONGO_URI=your_mongodb_connection_string
 
