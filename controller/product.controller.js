@@ -45,8 +45,9 @@ export const getProductById = async (req, res) => {
 export const createProduct = async (req, res) => {
   try {
     const data = { ...req.body };
-    data.name = JSON.parse(data.name);
-    data.description = JSON.parse(data.description);
+    data.name = typeof data.name === "string" ? JSON.parse(data.name) : data.name;
+    data.description =
+      typeof data.description === "string" ? JSON.parse(data.description) : data.description;
 
     const product = await Product.create({
       ...data,
@@ -69,8 +70,12 @@ export const createProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
   try {
     const updatedData = { ...req.body };
-    updatedData.name = JSON.parse(updatedData.name);
-    updatedData.description = JSON.parse(updatedData.description);
+    updatedData.name =
+      typeof updatedData.name === "string" ? JSON.parse(updatedData.name) : updatedData.name;
+    updatedData.description =
+      typeof updatedData.description === "string"
+        ? JSON.parse(updatedData.description)
+        : updatedData.description;
 
     if (req.file) {
       updatedData.image = `/uploads/${req.file.filename}`;
