@@ -83,3 +83,25 @@ This project is a Node.js + Express backend with MongoDB (Mongoose). It provides
 POST /api/products
 Authorization: Bearer <token>
 Content-Type: multipart/form-data
+```
+
+## ⚙️ Environment Variables (.env)
+
+To run this project, create a `.env` file in the root directory of the backend and add the following variables:
+
+```env
+
+MONGO_URI="mongodb://localhost:27017/forkly"
+JWT_SECRET="t0S53Gbyag:L&sMUh:X:}bPQpp9[2CvIKz&[Zq$G[i;"
+JWT_EXP="1h"
+PORT=5000
+
+# MongoDB connection string
+MONGO_URI=your_mongodb_connection_string
+
+# JWT secret key for authentication
+JWT_SECRET=your_jwt_secret_key
+JWT_EXP=your_token_life_time
+
+# Express port on which the server listens on
+PORT=5000
