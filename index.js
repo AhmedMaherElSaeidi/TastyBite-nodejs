@@ -13,7 +13,6 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/uploads", express.static("uploads"));
 if (app.get("env") === "development") app.use(morgan("tiny"));
 
 // routes
