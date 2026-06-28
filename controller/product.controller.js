@@ -51,7 +51,7 @@ export const createProduct = async (req, res) => {
 
     const product = await Product.create({
       ...data,
-      image: req.file ? `/uploads/${req.file.filename}` : null,
+      image: req.file ? req.file.path : null,
     });
 
     res.status(201).json({
@@ -78,7 +78,7 @@ export const updateProduct = async (req, res) => {
         : updatedData.description;
 
     if (req.file) {
-      updatedData.image = `/uploads/${req.file.filename}`;
+      updatedData.image = req.file.path;
     }
 
     const product = await Product.findByIdAndUpdate(req.params.id, updatedData, {
